@@ -1,43 +1,12 @@
-## A.I. Duet
-
-A piano that responds to you.
+## NOTE RULES
 
 ## About
 
-This experiment lets you make music through machine learning. A neural network was trained on many MIDI examples and it learned about musical concepts, building a map of notes and timings. You just play a few notes, and see how the neural net responds. 
-
-[https://aiexperiments.withgoogle.com/ai-duet](https://aiexperiments.withgoogle.com/ai-duet)
-
-This is not an official Google product.
-
-## CREDITS
-
-Built by [Yotam Mann](https://github.com/tambien) with friends on the Magenta and Creative Lab teams at Google. It uses [TensorFlow](https://tensorflow.org), [Tone.js](https://github.com/Tonejs/Tone.js) and open-source tools from the [Magenta](https://magenta.tensorflow.org/) project. Check out more at [A.I. Experiments](https://aiexperiments.withgoogle.com).
-
-## OVERVIEW
-
-A.I. Duet is composed of two parts, the front-end which is in the `static` folder and the back-end which is in the `server` folder. The front-end client creates short MIDI files using the players's input which is sent to a [Flask](http://flask.pocoo.org/) server. The server takes that MIDI input and "continues" it using [Magenta](https://github.com/tensorflow/magenta) and [TensorFlow](https://www.tensorflow.org/) which is then returned back to the client. 
+An interface, which visualizes music theory concepts based on the notes you play in real-time.
 
 ## INSTALLATION
 
-A.I. Duet only works with [Python 2.7](https://www.python.org/download/releases/2.7/) and it was tested with Node v6. There are two basic ways of installing A.I. Duet: with Docker or without Docker.
-
-If you already have a Python environment setup, install all of the server dependencies and start the server by typing the following in the terminal:
-
-```bash
-cd server
-pip install -r requirements.txt
-```
-
-If this does not work, jump down to the [Docker](#docker) installation instructions, which will walk you through installing A.I. Duet within a Docker container.
-
-If it _did_ install tensorflow and magenta successfully, you can run the server by typing:
-
-```bash
-python server.py
-```
-
-Then to build and install the front-end Javascript code, first make sure you have [Node.js](https://nodejs.org) 6 installed. And then install of the dependencies of the project and build the code by typing the following in the terminal: 
+To build and install the front-end Javascript code, first make sure you have [Node.js](https://nodejs.org) 6 installed. And then install of the dependencies of the project and build the code by typing the following in the terminal: 
 
 ```bash
 cd static
@@ -45,18 +14,18 @@ npm install
 npm run build
 ```
 
-You can now play with A.I. Duet at [localhost:8080](http://localhost:8080).
+You can now play at [localhost:8080](http://localhost:8080).
 
 ## DOCKER
 
 [Docker](https://www.docker.com/) is an open-source containerization software which simplifies installation across various OSes. It is the simplest method to build and install both the front-end and back-end components. Once you have Docker installed, you can just run: 
 
 ```bash
-$ sudo docker build -t ai-duet .
-$ sudo docker run -t -p 8080:8080 ai-duet
+$ sudo docker build -t note-rules .
+$ sudo docker run -t -p 8080:8080 note-rules
 ```
 
-You can now play with A.I. Duet at [localhost:8080](http://localhost:8080).
+You can now play at [localhost:8080](http://localhost:8080).
 
 ## MIDI SUPPORT
 
