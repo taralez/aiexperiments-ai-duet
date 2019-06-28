@@ -18,36 +18,36 @@ import {Keyboard} from 'keyboard/Keyboard'
 import {AI} from 'ai/AI'
 import {Sound} from 'sound/Sound'
 import {Glow} from 'interface/Glow'
-import {Splash} from 'interface/Splash'
-import {About} from 'interface/About'
-import {Tutorial} from 'ai/Tutorial'
+// import {Splash} from 'interface/Splash'
+// import {About} from 'interface/About'
+// import {Tutorial} from 'ai/Tutorial'
 import 'babel-polyfill'
 
 /////////////// SPLASH ///////////////////	
 
-const about = new About(document.body)
-const splash = new Splash(document.body)
-splash.on('click', () => {
-	keyboard.activate()
-	tutorial.start()
-	about.showButton()
-})
-splash.on('about', () => {
-	about.open(true)
-})
-about.on('close', () => {
-	if (!splash.loaded || splash.isOpen()){
-		splash.show()
-	} else {
-		keyboard.activate()
-	}
-})
-about.on('open', () => {
-	keyboard.deactivate()
-	if (splash.isOpen()){
-		splash.hide()
-	}
-})
+// const about = new About(document.body)
+// const splash = new Splash(document.body)
+// splash.on('click', () => {
+// 	keyboard.activate()
+// 	tutorial.start()
+// 	about.showButton()
+// })
+// splash.on('about', () => {
+// 	about.open(true)
+// })
+// about.on('close', () => {
+// 	if (!splash.loaded || splash.isOpen()){
+// 		splash.show()
+// 	} else {
+// 		keyboard.activate()
+// 	}
+// })
+// about.on('open', () => {
+// 	keyboard.deactivate()
+// 	if (splash.isOpen()){
+// 		splash.hide()
+// 	}
+// })
 
 
 /////////////// PIANO ///////////////////
@@ -64,52 +64,53 @@ sound.load()
 
 keyboard.on('keyDown', (note) => {
 	sound.keyDown(note)
-	ai.keyDown(note)
+	//ai.keyDown(note)
 	glow.user()
 })
 
 keyboard.on('keyUp', (note) => {
 	sound.keyUp(note)
-	ai.keyUp(note)
+	//ai.keyUp(note)
 	glow.user()
 })
+keyboard.activate()
 
 /////////////// AI ///////////////////
 
-const ai = new AI()
-
-ai.on('keyDown', (note, time) => {
-	sound.keyDown(note, time, true)
-	keyboard.keyDown(note, time, true)
-	glow.ai(time)
-})
-
-ai.on('keyUp', (note, time) => {
-	sound.keyUp(note, time, true)
-	keyboard.keyUp(note, time, true)	
-	glow.ai(time)
-})
+// const ai = new AI()
+//
+// ai.on('keyDown', (note, time) => {
+// 	sound.keyDown(note, time, true)
+// 	keyboard.keyDown(note, time, true)
+// 	glow.ai(time)
+// })
+//
+// ai.on('keyUp', (note, time) => {
+// 	sound.keyUp(note, time, true)
+// 	keyboard.keyUp(note, time, true)
+// 	glow.ai(time)
+// })
 
 /////////////// TUTORIAL ///////////////////
 
-const tutorial = new Tutorial(container)
-
-tutorial.on('keyDown', (note, time) => {
-	sound.keyDown(note, time)
-	keyboard.keyDown(note, time)
-	glow.user()
-})
-
-tutorial.on('keyUp', (note, time) => {
-	sound.keyUp(note, time)
-	keyboard.keyUp(note, time)
-	glow.user()
-})
-
-tutorial.on('aiKeyDown', (note, time) => {
-	ai.keyDown(note, time)
-})
-
-tutorial.on('aiKeyUp', (note, time) => {
-	ai.keyUp(note, time)
-})
+// const tutorial = new Tutorial(container)
+//
+// tutorial.on('keyDown', (note, time) => {
+// 	sound.keyDown(note, time)
+// 	keyboard.keyDown(note, time)
+// 	glow.user()
+// })
+//
+// tutorial.on('keyUp', (note, time) => {
+// 	sound.keyUp(note, time)
+// 	keyboard.keyUp(note, time)
+// 	glow.user()
+// })
+//
+// tutorial.on('aiKeyDown', (note, time) => {
+// 	ai.keyDown(note, time)
+// })
+//
+// tutorial.on('aiKeyUp', (note, time) => {
+// 	ai.keyUp(note, time)
+// })
