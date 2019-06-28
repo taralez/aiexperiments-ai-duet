@@ -6,7 +6,22 @@ An interface, which visualizes music theory concepts based on the notes you play
 
 ## INSTALLATION
 
-To build and install the front-end Javascript code, first make sure you have [Node.js](https://nodejs.org) 6 installed. And then install of the dependencies of the project and build the code by typing the following in the terminal: 
+If you already have a Python environment setup, install all of the server dependencies and start the server by typing the following in the terminal:
+
+```bash
+cd server
+pip install -r requirements.txt
+```
+
+If this does not work, jump down to the [Docker](#docker) installation instructions, which will walk you through installing A.I. Duet within a Docker container.
+
+If it _did_ install tensorflow and magenta successfully, you can run the server by typing:
+
+```bash
+python server.py
+```
+
+Then to build and install the front-end Javascript code, first make sure you have [Node.js](https://nodejs.org) 6 installed. And then install of the dependencies of the project and build the code by typing the following in the terminal: 
 
 ```bash
 cd static
